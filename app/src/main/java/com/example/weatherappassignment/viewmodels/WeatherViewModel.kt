@@ -1,9 +1,10 @@
-package com.example.weatherappassignment
+package com.example.weatherappassignment.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.weatherappassignment.NetworkResponse
 import com.example.weatherappassignment.data.WeatherApiResponse
 import com.example.weatherappassignment.repository.WeatherRepository
 import kotlinx.coroutines.launch

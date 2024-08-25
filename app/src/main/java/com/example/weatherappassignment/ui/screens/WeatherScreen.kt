@@ -21,16 +21,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.weatherappassignment.NetworkResponse
 import com.example.weatherappassignment.R
-import com.example.weatherappassignment.WeatherViewModel
+import com.example.weatherappassignment.viewmodels.WeatherViewModel
 import com.example.weatherappassignment.data.WeatherApiResponse
 import com.example.weatherappassignment.navigation.WeatherScreens
-import com.example.weatherappassignment.ui.theme.GradientBrush
 
 @Composable
 fun WeatherScreen(navController: NavHostController, weatherViewModel: WeatherViewModel = viewModel()) {
@@ -129,7 +127,7 @@ fun WeatherDataDisplay(weatherData: WeatherApiResponse) {
         // Main Weather Card
         WeatherCard(
             title = "${weatherData.current.temp}°",
-            subtitle = weatherData.current.weather.firstOrNull()?.description ?: "No Data", // Fallback text
+            subtitle = weatherData.current.weather.firstOrNull()?.description ?: "No Data",
             backgroundColor = Brush.verticalGradient(
                 colors = listOf(Color(0xFF6D9EEB), Color(0xFF3C5A99))
             ),
@@ -138,9 +136,6 @@ fun WeatherDataDisplay(weatherData: WeatherApiResponse) {
         Log.e("Ankit","weather type: ${weatherData.current.weather.firstOrNull()?.description}")
         Log.e("Ankit","wind type: ${weatherData.current.wind_speed}")
         Log.e("Ankit","wind type: ${weatherData.current.humidity}")
-
-
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -150,9 +145,9 @@ fun WeatherDataDisplay(weatherData: WeatherApiResponse) {
             // Humidity Card
             WeatherDetailCard(
                 title = "Humidity",
-                value = "${weatherData.current.humidity}%", // Display humidity
+                value = "${weatherData.current.humidity}%",
                 backgroundColor = Brush.verticalGradient(
-                    colors = listOf(Color(0xFF008080), Color(0xFF20B2AA)) // Adjusted colors
+                    colors = listOf(Color(0xFF008080), Color(0xFF20B2AA))
                 ),
                 iconRes = R.drawable.ic_humidity
             )
@@ -160,9 +155,9 @@ fun WeatherDataDisplay(weatherData: WeatherApiResponse) {
             // Wind Speed Card
             WeatherDetailCard(
                 title = "Wind",
-                value = "${weatherData.current.wind_speed} mph", // Display wind speed
+                value = "${weatherData.current.wind_speed} mph",
                 backgroundColor = Brush.verticalGradient(
-                    colors = listOf(Color(0xFF4682B4), Color(0xFF5F9EA0)) // Adjusted colors
+                    colors = listOf(Color(0xFF4682B4), Color(0xFF5F9EA0))
                 ),
                 iconRes = R.drawable.ic_wind
             )

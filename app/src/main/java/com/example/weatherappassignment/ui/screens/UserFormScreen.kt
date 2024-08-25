@@ -1,26 +1,21 @@
 package com.example.weatherappassignment.ui.screens
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.weatherappassignment.UserViewModel
+import com.example.weatherappassignment.viewmodels.UserViewModel
 import com.example.weatherappassignment.data.User
 import com.example.weatherappassignment.navigation.WeatherScreens
-import com.example.weatherappassignment.ui.theme.GradientBrush
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable

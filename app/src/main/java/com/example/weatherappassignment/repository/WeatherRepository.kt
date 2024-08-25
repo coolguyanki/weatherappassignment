@@ -13,8 +13,10 @@ class WeatherRepository {
 
     private val api: WeatherApi = RetrofitInstance.api
 
-
-    suspend fun getWeatherData(latitude: Double, longitude: Double): NetworkResponse<WeatherApiResponse> {
+    suspend fun getWeatherData(
+        latitude: Double,
+        longitude: Double
+    ): NetworkResponse<WeatherApiResponse> {
         return withContext(Dispatchers.IO) {
             try {
                 val response = api.getWeather(latitude, longitude)
@@ -25,11 +27,8 @@ class WeatherRepository {
                 } else {
                     NetworkResponse.Error("Error: ${response.message()}")
                 }
-            } catch (e: HttpException) {
-                NetworkResponse.Error("HTTP error: ${e.message()}")
-            } catch (e: IOException) {
-                NetworkResponse.Error("Network error: ${e.message}")
-            } catch (e: Exception) {
+            }
+            catch (e: Exception) {
                 NetworkResponse.Error("Unexpected error: ${e.message}")
             }
         }
